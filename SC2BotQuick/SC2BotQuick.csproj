@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="s2clientprotocol\common.proto" />
+    <None Remove="s2clientprotocol\data.proto" />
+    <None Remove="s2clientprotocol\debug.proto" />
+    <None Remove="s2clientprotocol\error.proto" />
+    <None Remove="s2clientprotocol\query.proto" />
+    <None Remove="s2clientprotocol\raw.proto" />
+    <None Remove="s2clientprotocol\sc2api.proto" />
+    <None Remove="s2clientprotocol\score.proto" />
+    <None Remove="s2clientprotocol\spatial.proto" />
+    <None Remove="s2clientprotocol\ui.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <AdditionalFiles Include="s2clientprotocol\common.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\data.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\debug.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\error.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\query.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\raw.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\sc2api.proto" ImportPaths="../" />
+	  <AdditionalFiles Include="s2clientprotocol\score.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\spatial.proto" ImportPaths="../" OneOf="enum" />
+	  <AdditionalFiles Include="s2clientprotocol\ui.proto" ImportPaths="../" OneOf="enum" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Fleck" Version="1.2.0" />
+    <PackageReference Include="protobuf-net" Version="3.2.16" />
+    <PackageReference Include="protobuf-net.BuildTools" Version="3.2.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
