@@ -132,6 +132,32 @@ namespace SC2BotQuick
                 Debug.Assert(state != FakeServerState.Loop);
                 gameConnection.Request(request);
             }
+            else if (request.Query != null)
+            {
+                if (request.Query.Abilities != null)
+                {
+                    var responseQuery = new ResponseQuery()
+                    {
+
+                    };
+                    var response = new Response()
+                    {
+                        Query = responseQuery
+                    };
+                    foreach (var abil in responseQuery.Abilities)
+                    {
+                        responseQuery.Abilities.Add(new ResponseQueryAvailableAbilities()
+                        {
+                            UnitTag = abil.UnitTag,
+                        });
+                    }
+                    return response;
+                }
+                else
+                {
+                    Debug.Assert(false);
+                }
+            }
             else if (request.Ping != null)
             {
                 return new Response();
@@ -265,7 +291,6 @@ namespace SC2BotQuick
             {
                 GameDataCache = response;
             }
-
         }
 
         MemoryStream memoryStream = new MemoryStream();
